@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Личный кабинет врача</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        /* Дополнительные стили для личного кабинета врача */
+        .doctor-info {
+            margin-top: 30px;
+        }
+        .info-block {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .info-block h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Личный кабинет врача</h1>
+        <div class="row">
+            <div class="col-md-6 doctor-info">
+                <div class="info-block">
+                    <h3>Персональная информация</h3>
+                    <div class="info-item">
+                        <strong>Имя:</strong> {{ doctor.first_name }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Фамилия:</strong> {{ doctor.last_name }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong> {{ doctor.email }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Номер телефона:</strong> {{ doctor.phone }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Организация:</strong> {{ doctor.organization }}
+                    </div>
+
+                    <!-- Добавьте другие поля для информации о враче -->
+                </div>
+                <div class="info-block">
+                    <h3>Реферальная программа</h3>
+                    <div class="info-item">
+                        <strong>QR-код:</strong>
+                        {% if qr_code %}
+                            <!-- Отображение SVG-кода как изображения -->
+                            <img src="data:image/svg+xml;utf8,{{ qr_code.svg }}" alt="QR Code" width="120" height="120"/>
+                        {% else %}
+                            <p>QR-код недоступен</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info-block">
+                    <h3>Статистика по пользователям</h3>
+                    <div class="info-item">
+                        <strong>Всего использований (кликов):</strong> {{ 10 }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Количество зарегистрировавшихся клиентов:</strong> {{ 6 }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Количесвто сделавших заказ:</strong> {{ 2 }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% bootstrap_javascript %} <!-- Подключение JavaScript Bootstrap -->
+</body>
+</html>

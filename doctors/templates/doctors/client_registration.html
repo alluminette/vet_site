@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация клиента</title>
+</head>
+<body>
+    <h1>Регистрация клиента</h1>
+    <form action="{% url 'client_registration' qr_code %}" method="post">
+        {% csrf_token %}
+        <!-- Поля для заполнения данных клиента -->
+        <input type="submit" value="Зарегистрировать">
+    </form>
+</body>
+</html>
