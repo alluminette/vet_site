@@ -104,6 +104,17 @@
                     {% endfor %}
                 </div>
             </div>
+            <div class="form-group">
+                {{ form.privacy_agreement_page.label_tag }}
+                {{ form.privacy_agreement_page }}
+                <a href="{% url 'privacy_page' %}" target="_blank">Обработка персональных данных</a>
+
+            </div>
+            <div class="form-group">
+                {{ form.oferta_agreement_page.label_tag }}
+                {{ form.oferta_agreement_page }}
+                <a href="{% url 'oferta_page' %}" target="_blank">Оферта</a>
+            </div>
             <button type="submit" class="btn btn-primary">Зарегистрировать</button>
         </form>
     </div>

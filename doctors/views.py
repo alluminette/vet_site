@@ -57,16 +57,13 @@ def register_doctor(request):
     return render(request, 'doctors/register_doctor.html', {'form': form})
 
 
-# def doctor_profile(request):
-#     user = request.user
-#     UserModel = get_user_model()
+def oferta_page(request):
+    # Ваша логика представления для страницы с PDF
+    return redirect('https://pets.smartbreeding.ru/oferta')
 
-#     if isinstance(user, UserModel):
-#         doctor = Doctor.objects.get(user=user)
-#         return render(request, 'doctors/doctor_profile.html', {'doctor': doctor})
-#     else:
-#         # Обработка ситуации, если пользователь не является экземпляром UserModel
-#         return HttpResponse("User is not authenticated or has no associated Doctor profile")
+
+def privacy_page(request):
+    return redirect('https://pets.smartbreeding.ru/privacy')
 
 
 def login_form(request):
